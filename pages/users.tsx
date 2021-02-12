@@ -1,3 +1,4 @@
+import SearchUsers from 'components/search_users'
 import Head from 'next/head'
 import { Grid, Segment } from 'semantic-ui-react'
 
@@ -15,7 +16,7 @@ export default function UsersPage(props: any) {
             <Grid stackable>
                 <Grid.Row>
                     <Grid.Column width={16} verticalAlign="middle">
-
+                        <SearchUsers />
 
                     </Grid.Column>
                 </Grid.Row>
