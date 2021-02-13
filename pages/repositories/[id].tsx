@@ -1,6 +1,8 @@
-import RepositoryList from 'components/repository_list'
+import SearchRepositories from 'components/search_repositories'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { Grid } from 'semantic-ui-react'
 
 export const getServerSideProps: GetServerSideProps<{}, { id: string }> = async (context) => {
     const { params } = context
@@ -27,6 +29,11 @@ interface IProps {
 
 export default function UserReposPage(props: IProps) {
     const { repositories } = props
+    const router = useRouter()
+
+    function onSelect(username: string) {
+        router.push(`/repositories/${username}`)
+    }
 
     return (
         <div>
@@ -35,10 +42,19 @@ export default function UserReposPage(props: IProps) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <RepositoryList
-                datasource={repositories}
-            />
 
+
+            <Grid stackable>
+                <Grid.Row>
+                    <Grid.Column width={16} verticalAlign="middle">
+                        <SearchRepositories
+                            datasource={repositories}
+                            onSelect={onSelect}
+                        />
+
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         </div>
     )
 }
