@@ -18,3 +18,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Troubleshoot
 - Components must be inside src folder so that CRA-preset and Storybook can work.
+- Start server before runing cypress.

@@ -31,7 +31,7 @@ export default function SearchUsers({
         setQuery(searchQuery)
     }
 
-    async function searchUser() {
+    async function searchUsers() {
         setIsLoading(true)
         try {
             const response = await Axios.get<any, any>(`https://api.github.com/search/users?q=${queryDebounced}`)
@@ -44,7 +44,7 @@ export default function SearchUsers({
 
     useEffect(() => {
         if (queryDebounced.length > 0) {
-            searchUser()
+            searchUsers()
         } else {
             setOptions([])
         }
@@ -53,6 +53,7 @@ export default function SearchUsers({
     return (
         <Input fluid action>
             <Dropdown
+                data-testid="search-users-dropdown"
                 style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
                 fluid
                 selectOnBlur={false}

@@ -19,8 +19,6 @@ export const getServerSideProps: GetServerSideProps<{}, { id: string }> = async 
             userReponse.json(),
         ])
 
-        console.log({ repositories, user })
-
         return {
             props: {
                 repositories,

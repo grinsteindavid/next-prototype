@@ -44,6 +44,7 @@ export default function SearchRepositories({
     return (
         <Input fluid action>
             <Dropdown
+                data-testid="search-repositories-dropdown"
                 style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
                 fluid
                 selectOnBlur={false}

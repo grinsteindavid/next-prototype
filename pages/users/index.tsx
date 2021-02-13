@@ -2,10 +2,9 @@ import SearchUsers from 'src/components/search_users'
 import { useGlobalContext } from 'context/global'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 import { Grid, Header, Segment } from 'semantic-ui-react'
 
-export default function UsersPage(props: any) {
+export default function UsersPage() {
     const router = useRouter()
     const { setIsLoading } = useGlobalContext()
 
