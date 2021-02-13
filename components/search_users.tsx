@@ -21,7 +21,7 @@ export default function SearchUsers({
     const [options, setOptions] = useState<DropdownItemProps[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [query, setQuery] = useState<string>('')
-    const queryDebounced = useDebounce(query, 300)
+    const queryDebounced = useDebounce(query, 200)
 
     function onChange(event: React.SyntheticEvent<HTMLElement>, { value }: DropdownProps) {
         onSelect(String(value))
@@ -54,6 +54,7 @@ export default function SearchUsers({
             selectOnBlur={false}
             selection
             loading={isLoading}
+            disabled={isLoading}
             options={options}
             search
             onSearchChange={onSearchChange}

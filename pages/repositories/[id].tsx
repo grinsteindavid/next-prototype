@@ -1,3 +1,4 @@
+import RepositoryList from 'components/repository_list'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 
@@ -34,7 +35,9 @@ export default function UserReposPage(props: IProps) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-
+            <RepositoryList
+                datasource={repositories}
+            />
 
         </div>
     )
