@@ -26,8 +26,13 @@ export const getServerSideProps: GetServerSideProps<{}, { id: string, repository
             }
         }
     } catch (error) {
+        console.error(error)
+        context.res.statusCode = 302
+        context.res.setHeader('Location', `/404`)
         return {
-            notFound: true,
+            props: {
+
+            }
         }
     }
 }
