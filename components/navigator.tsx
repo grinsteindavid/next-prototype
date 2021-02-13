@@ -18,33 +18,35 @@ export default function Navigator() {
     }, [router.query, router.route])
 
     function navigate(index: number) {
-        if (index < sections.length - 1) {
-            const url = sections.join('/')
-            router.push(`/${url}`)
-        }
+        let url = '/'
+
+        sections.forEach((section, sectionIndex) => {
+            if (sectionIndex <= index) {
+                url += section
+            }
+        })
+
+        router.push(url)
     }
 
 
     return (
         <Segment inverted style={{ borderRadius: 0, margin: 0 }}>
             <Breadcrumb>
-                <Breadcrumb.Section
-                    link
-                    content="Home"
-                    onClick={() => router.push('/')}
-                />
                 {sections.map((section, index) => {
 
                     return (
-                        <Fragment key={index}>
-                            <Breadcrumb.Divider style={{ color: 'white' }} />
+                        <span
+                            key={index}
+                            onClick={() => navigate(index)}
+                        >
+                            {index > 0 && <Breadcrumb.Divider style={{ color: 'white' }} />}
                             <Breadcrumb.Section
                                 active
-                                link={index < sections.length - 1 && index !== 0}
-                                onClick={() => navigate(index)}
+                                link={index < sections.length - 1}
                                 content={section}
                             />
-                        </Fragment>
+                        </span>
                     )
                 })}
 
