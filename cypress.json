@@ -1,7 +1,7 @@
 {
     "baseUrl": "http://localhost:3000",
     "testFiles": [
-        "components/*.spec.js"
+        "pages/*.spec.js"
     ],
     "video": false
 }
