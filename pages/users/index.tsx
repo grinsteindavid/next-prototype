@@ -1,12 +1,15 @@
 import SearchUsers from 'components/search_users'
+import { useGlobalContext } from 'context/global'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Grid, Header, Segment } from 'semantic-ui-react'
 
 export default function UsersPage(props: any) {
     const router = useRouter()
+    const { setIsLoading } = useGlobalContext()
 
     function onSelect(username: string) {
+        setIsLoading(true)
         router.push(`/users/${username}`)
     }
 
@@ -20,7 +23,8 @@ export default function UsersPage(props: any) {
 
             <Grid stackable>
                 <Grid.Row>
-                    <Grid.Column width={16} verticalAlign="middle">
+                    <Grid.Column width={5}></Grid.Column>
+                    <Grid.Column width={6} verticalAlign="middle">
                         <Segment.Group>
                             <Segment>
                                 <Header
@@ -35,6 +39,7 @@ export default function UsersPage(props: any) {
                             </Segment>
                         </Segment.Group>
                     </Grid.Column>
+                    <Grid.Column width={5}></Grid.Column>
                 </Grid.Row>
             </Grid>
         </div>

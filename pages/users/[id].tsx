@@ -1,7 +1,9 @@
 import SearchRepositories from 'components/search_repositories'
+import { useGlobalContext } from 'context/global'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import { Grid, Header, Segment } from 'semantic-ui-react'
 
 export const getServerSideProps: GetServerSideProps<{}, { id: string }> = async (context) => {
@@ -31,11 +33,16 @@ interface IProps {
 
 export default function UserPage(props: IProps) {
     const { repositories, username } = props
+    const { setIsLoading } = useGlobalContext()
     const router = useRouter()
 
     function onSelect(repositoryName: string) {
         router.push(`/repositories/${repositoryName}`)
     }
+
+    useEffect(() => {
+        setIsLoading(false)
+    }, [])
 
     return (
         <div>
@@ -48,7 +55,8 @@ export default function UserPage(props: IProps) {
 
             <Grid stackable>
                 <Grid.Row>
-                    <Grid.Column width={16} verticalAlign="middle">
+                    <Grid.Column width={4}></Grid.Column>
+                    <Grid.Column width={8} verticalAlign="middle">
                         <Segment.Group>
                             <Segment>
                                 <Header
@@ -63,8 +71,8 @@ export default function UserPage(props: IProps) {
                                 />
                             </Segment>
                         </Segment.Group>
-
                     </Grid.Column>
+                    <Grid.Column width={4}></Grid.Column>
                 </Grid.Row>
             </Grid>
         </div>

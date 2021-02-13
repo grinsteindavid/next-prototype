@@ -1,6 +1,6 @@
 import useDebounce from "hooks/debounce"
 import { useState, useEffect } from "react"
-import { Dropdown, DropdownItemProps, DropdownOnSearchChangeData, DropdownProps } from "semantic-ui-react"
+import { Button, Dropdown, DropdownItemProps, DropdownOnSearchChangeData, DropdownProps, Input } from "semantic-ui-react"
 import Axios from 'axios'
 
 function mapToDropdownItems(item: any): DropdownItemProps {
@@ -45,20 +45,26 @@ export default function SearchUsers({
     useEffect(() => {
         if (queryDebounced.length > 0) {
             searchUser()
+        } else {
+            setOptions([])
         }
     }, [queryDebounced])
 
     return (
-        <Dropdown
-            fluid
-            selectOnBlur={false}
-            selection
-            loading={isLoading}
-            disabled={isLoading}
-            options={options}
-            search
-            onSearchChange={onSearchChange}
-            onChange={onChange}
-        />
+        <Input fluid action>
+            <Dropdown
+                style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
+                fluid
+                selectOnBlur={false}
+                selection
+                loading={isLoading}
+                disabled={isLoading}
+                options={options}
+                search
+                onSearchChange={onSearchChange}
+                onChange={onChange}
+            />
+            <Button icon="search" color="black" />
+        </Input>
     )
 }
