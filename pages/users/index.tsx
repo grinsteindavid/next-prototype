@@ -3,13 +3,11 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Grid, Segment } from 'semantic-ui-react'
 
-//https://api.github.com/search/users?q=david
-
 export default function UsersPage(props: any) {
     const router = useRouter()
 
     function onSelect(username: string) {
-        router.push(`/repositories/${username}`)
+        router.push(`/users/${username}`)
     }
 
     return (
@@ -23,9 +21,11 @@ export default function UsersPage(props: any) {
             <Grid stackable>
                 <Grid.Row>
                     <Grid.Column width={16} verticalAlign="middle">
-                        <SearchUsers
-                            onSelect={onSelect}
-                        />
+                        <Segment>
+                            <SearchUsers
+                                onSelect={onSelect}
+                            />
+                        </Segment>
 
                     </Grid.Column>
                 </Grid.Row>

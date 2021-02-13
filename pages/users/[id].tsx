@@ -1,3 +1,4 @@
+import SearchRepositories from 'components/search_repositories'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -7,11 +8,13 @@ export const getServerSideProps: GetServerSideProps<{}, { id: string }> = async 
     const { params } = context
 
     try {
-
+        const response = await fetch(`https://api.github.com/users/${params?.id}/repos`)
+        const data = await response.json()
 
         return {
             props: {
-
+                repositories: data,
+                username: params?.id
             }
         }
     } catch (error) {
@@ -22,17 +25,22 @@ export const getServerSideProps: GetServerSideProps<{}, { id: string }> = async 
 }
 
 interface IProps {
-
+    repositories: any[],
+    username?: string
 }
 
-export default function UserRepositoryPage(props: IProps) {
-    const { } = props
+export default function UserPage(props: IProps) {
+    const { repositories, username } = props
     const router = useRouter()
+
+    function onSelect(repositoryName: string) {
+        router.push(`/repositories/${repositoryName}`)
+    }
 
     return (
         <div>
             <Head>
-                <title>User</title>
+                <title>{username} Profile</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -41,7 +49,10 @@ export default function UserRepositoryPage(props: IProps) {
             <Grid stackable>
                 <Grid.Row>
                     <Grid.Column width={16} verticalAlign="middle">
-
+                        <SearchRepositories
+                            datasource={repositories}
+                            onSelect={onSelect}
+                        />
 
                     </Grid.Column>
                 </Grid.Row>

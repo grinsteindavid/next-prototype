@@ -4,8 +4,8 @@ import { Dropdown, DropdownItemProps, DropdownProps } from "semantic-ui-react"
 function mapToDropdownItems(item: any): DropdownItemProps {
     return {
         key: item.id,
-        value: item.login,
-        text: item.login,
+        value: item.name,
+        text: item.name,
         icon: 'github',
         content: (
             <a href={item.html_url} target="_blank">
