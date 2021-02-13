@@ -28,7 +28,9 @@ export default function UsersPage() {
                         <Segment.Group>
                             <Segment>
                                 <Header
-                                    icon="list"
+                                    style={{ fontWeight: 200 }}
+                                    color="grey"
+                                    icon="github"
                                     content="Github Users"
                                 />
                             </Segment>

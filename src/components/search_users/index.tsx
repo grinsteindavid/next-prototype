@@ -62,6 +62,7 @@ export default function SearchUsers({
                 disabled={isLoading}
                 options={options}
                 search
+                placeholder="Search by username"
                 onSearchChange={onSearchChange}
                 onChange={onChange}
             />

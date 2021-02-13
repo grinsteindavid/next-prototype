@@ -80,10 +80,12 @@ export default function UserPage(props: IProps) {
                                 <Card.Meta>{user.location}</Card.Meta>
                                 <Card.Description>{user.bio}</Card.Description>
                                 <Card.Content extra>
-                                    <SearchRepositories
-                                        datasource={repositories}
-                                        onSelect={onSelect}
-                                    />
+                                    <div style={{ marginTop: 20 }}>
+                                        <SearchRepositories
+                                            datasource={repositories}
+                                            onSelect={onSelect}
+                                        />
+                                    </div>
                                 </Card.Content>
                             </Card.Content>
                         </Card>
