@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { Card, Grid, Header, Image, Label, Message } from 'semantic-ui-react'
+import { Card, Grid, Header, Image, Message } from 'semantic-ui-react'
 
 export const getServerSideProps: GetServerSideProps<{}, { id: string, repositoryId: string }> = async (context) => {
     const { params } = context

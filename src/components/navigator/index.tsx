@@ -1,10 +1,14 @@
-import { useRouter } from "next/router";
+import { NextRouter } from "next/router";
 import { useMemo } from "react";
 import { Breadcrumb, Segment } from "semantic-ui-react";
 
+export interface IProps {
+    router: NextRouter
+}
 
-export default function Navigator() {
-    const router = useRouter()
+export default function Navigator({
+    router,
+}: IProps) {
     const sections = useMemo<string[]>(() => {
         const routes = router.route.split('/').filter(route => route !== '')
 

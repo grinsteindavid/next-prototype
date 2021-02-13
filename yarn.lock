@@ -1976,7 +1976,7 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@storybook/addon-actions@6.1.17", "@storybook/addon-actions@^6.1.14":
+"@storybook/addon-actions@6.1.17", "@storybook/addon-actions@^6.1.17":
   version "6.1.17"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.1.17.tgz#9d32336284738cefa69b99acafa4b132d5533600"
   integrity sha512-4hyAvmjnI4C1ZQ7/t21jKKXE0jO1zAk310BkYin0NJf77Qi0tUE1DNOwirJY/xzRih36wWi1V79c/ZOJNsLv9Q==
@@ -2077,7 +2077,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-essentials@^6.1.14":
+"@storybook/addon-essentials@^6.1.17":
   version "6.1.17"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.1.17.tgz#195eeefb36adb4b972759f04e6d13fa8ea82b7fd"
   integrity sha512-oy/sbI2KdnnzqfdRaI1sAXb01zTP7ViwO+R1maKoeK1WyuK+WVdl8a7AdqgYW1ZCEoohsnz4HUz6t50DTcxWqQ==
@@ -2095,7 +2095,7 @@
     regenerator-runtime "^0.13.7"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-links@^6.1.14":
+"@storybook/addon-links@^6.1.17":
   version "6.1.17"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.1.17.tgz#53cd2f85a83006950cd86cef9975ae8311ac1de4"
   integrity sha512-Wl5EwWjNRXTR0hVWqA0Nr+HnIXALt/avqtNMIx7apodQwUPIRncLol73Z/nF+pUIYZFJQ3886koOWG54OWwAvQ==
@@ -2382,7 +2382,7 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/node-logger@6.1.17":
+"@storybook/node-logger@6.1.17", "@storybook/node-logger@^6.1.17":
   version "6.1.17"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.1.17.tgz#468e65c9f0c103d4b0cd7f5da945af81e9aaa3d4"
   integrity sha512-Z0xQ4kzvf7GnwFG9UY1HJO2UR66t8IBnC5GxvWrJ/kwXE+DRF3mm/MT41Zz/d9zAY5Vo4mhE5zRwlYSAtrxQIQ==
@@ -2412,7 +2412,7 @@
     react-docgen-typescript-plugin "^0.6.2"
     semver "^7.3.2"
 
-"@storybook/react@^6.1.14":
+"@storybook/react@^6.1.17":
   version "6.1.17"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.1.17.tgz#cb48386d435984d7ca58a24e686a72159367077b"
   integrity sha512-gBylKDuwUzWueB6mEhTo72SelWU3vPWHAFsi+NK6zWFIc2a5dJc9QqDfN+2rBhVOdRXqhSHzYwNWurqYpWuqew==

@@ -8,8 +8,8 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "docs": "start-storybook -p 6006 -s public",
+    "build-docs": "build-storybook -s public",
     "test:open": "cypress open",
     "test:run": "cypress run"
   },
@@ -22,11 +22,12 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.1.14",
-    "@storybook/addon-essentials": "^6.1.14",
-    "@storybook/addon-links": "^6.1.14",
+    "@storybook/addon-actions": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/node-logger": "^6.1.17",
     "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.14",
+    "@storybook/react": "^6.1.17",
     "@testing-library/cypress": "^7.0.3",
     "@types/next": "^9.0.0",
     "@types/node": "^14.14.27",

@@ -1,4 +1,4 @@
-import SearchRepositories from 'components/search_repositories'
+import SearchRepositories from 'src/components/search_repositories'
 import { useGlobalContext } from 'context/global'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
@@ -18,6 +18,8 @@ export const getServerSideProps: GetServerSideProps<{}, { id: string }> = async 
             repositoriesResponse.json(),
             userReponse.json(),
         ])
+
+        console.log({ repositories, user })
 
         return {
             props: {

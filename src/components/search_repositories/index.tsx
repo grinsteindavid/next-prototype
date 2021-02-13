@@ -8,9 +8,7 @@ function mapToDropdownItems(item: any): DropdownItemProps {
         text: item.name,
         icon: 'github',
         content: (
-            <a
-            // href={item.html_url} target="_blank"
-            >
+            <>
                 <span>{item.name}</span>
                 <span style={{ color: 'grey', marginLeft: 10 }}>{item.created_at}</span>
                 {item.language && (
@@ -21,7 +19,7 @@ function mapToDropdownItems(item: any): DropdownItemProps {
                         content={item.language}
                     />
                 )}
-            </a>
+            </>
         )
     }
 }

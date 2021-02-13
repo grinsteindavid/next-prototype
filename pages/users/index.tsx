@@ -1,4 +1,4 @@
-import SearchUsers from 'components/search_users'
+import SearchUsers from 'src/components/search_users'
 import { useGlobalContext } from 'context/global'
 import Head from 'next/head'
 import { useRouter } from 'next/router'

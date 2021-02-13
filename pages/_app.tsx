@@ -2,7 +2,8 @@ import 'semantic-ui-css/semantic.min.css'
 import '../styles/global.css'
 import { Container, Segment } from 'semantic-ui-react'
 import { GlobalProvider, useGlobalContext } from 'context/global'
-import Navigator from 'components/navigator'
+import Navigator from 'src/components/navigator'
+import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }: any) {
   return (
@@ -17,10 +18,13 @@ function MyApp({ Component, pageProps }: any) {
 
 function Wrapper({ Component, pageProps }: any) {
   const { state: { isLoading } } = useGlobalContext()
+  const router = useRouter()
 
   return (
     <Container fluid>
-      <Navigator />
+      <Navigator
+        router={router}
+      />
 
       <Segment
         loading={isLoading}
