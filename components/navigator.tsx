@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Fragment, useMemo } from "react";
+import { useMemo } from "react";
 import { Breadcrumb, Segment } from "semantic-ui-react";
 
 
@@ -9,8 +9,9 @@ export default function Navigator() {
         const routes = router.route.split('/').filter(route => route !== '')
 
         return routes.map(route => {
-            if (route === '[id]') {
-                return String(router.query.id)
+            if (route.includes('[') || route.includes(']')) {
+                const param = route.replace(/[\[\]']+/g, '')
+                return String(router.query[param])
             }
 
             return route
@@ -18,11 +19,11 @@ export default function Navigator() {
     }, [router.query, router.route])
 
     function navigate(index: number) {
-        let url = '/'
+        let url = ''
 
         sections.forEach((section, sectionIndex) => {
             if (sectionIndex <= index) {
-                url += section
+                url += `/${section}`
             }
         })
 

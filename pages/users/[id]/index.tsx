@@ -37,7 +37,7 @@ export default function UserPage(props: IProps) {
     const router = useRouter()
 
     function onSelect(repositoryName: string) {
-        router.push(`/repositories/${repositoryName}`)
+        router.push(`/users/${username}/repositories/${repositoryName}`)
     }
 
     useEffect(() => {

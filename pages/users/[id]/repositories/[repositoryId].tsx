@@ -32,7 +32,7 @@ export default function UserRepositoryPage(props: IProps) {
     return (
         <div>
             <Head>
-                <title>User</title>
+                <title>User Repository</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
