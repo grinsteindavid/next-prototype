@@ -4,19 +4,25 @@ import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { Grid, Header, Segment } from 'semantic-ui-react'
+import { Card, Grid, Image } from 'semantic-ui-react'
 
 export const getServerSideProps: GetServerSideProps<{}, { id: string }> = async (context) => {
     const { params } = context
 
     try {
-        const response = await fetch(`https://api.github.com/users/${params?.id}/repos`)
-        const data = await response.json()
+        const [repositoriesResponse, userReponse] = await Promise.all([
+            fetch(`https://api.github.com/users/${params?.id}/repos`),
+            fetch(`https://api.github.com/users/${params?.id}`),
+        ])
+        const [repositories, user] = await Promise.all([
+            repositoriesResponse.json(),
+            userReponse.json(),
+        ])
 
         return {
             props: {
-                repositories: data,
-                username: params?.id
+                repositories,
+                user,
             }
         }
     } catch (error) {
@@ -28,16 +34,17 @@ export const getServerSideProps: GetServerSideProps<{}, { id: string }> = async 
 
 interface IProps {
     repositories: any[],
-    username?: string
+    user: any
 }
 
 export default function UserPage(props: IProps) {
-    const { repositories, username } = props
+    const { repositories, user } = props
     const { setIsLoading } = useGlobalContext()
     const router = useRouter()
 
     function onSelect(repositoryName: string) {
-        router.push(`/users/${username}/repositories/${repositoryName}`)
+        setIsLoading(true)
+        router.push(`/users/${user.login}/repositories/${repositoryName}`)
     }
 
     useEffect(() => {
@@ -47,7 +54,7 @@ export default function UserPage(props: IProps) {
     return (
         <div>
             <Head>
-                <title>{username} Profile</title>
+                <title>Profile {user.login}</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -57,20 +64,24 @@ export default function UserPage(props: IProps) {
                 <Grid.Row>
                     <Grid.Column width={4}></Grid.Column>
                     <Grid.Column width={8} verticalAlign="middle">
-                        <Segment.Group>
-                            <Segment>
-                                <Header
-                                    icon="list"
-                                    content={`${username} repositories`}
+                        <Card fluid>
+                            <Card.Content>
+                                <Image
+                                    floated='right'
+                                    size='mini'
+                                    src={user.avatar_url}
                                 />
-                            </Segment>
-                            <Segment>
-                                <SearchRepositories
-                                    datasource={repositories}
-                                    onSelect={onSelect}
-                                />
-                            </Segment>
-                        </Segment.Group>
+                                <Card.Header>{user.name}</Card.Header>
+                                <Card.Meta>{user.location}</Card.Meta>
+                                <Card.Description>{user.bio}</Card.Description>
+                                <Card.Content extra>
+                                    <SearchRepositories
+                                        datasource={repositories}
+                                        onSelect={onSelect}
+                                    />
+                                </Card.Content>
+                            </Card.Content>
+                        </Card>
                     </Grid.Column>
                     <Grid.Column width={4}></Grid.Column>
                 </Grid.Row>

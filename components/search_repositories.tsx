@@ -52,6 +52,7 @@ export default function SearchRepositories({
                 selection
                 options={options}
                 search
+                placeholder="Search repositories"
                 onChange={onChange}
             />
             <Button icon="search" color="black" />
