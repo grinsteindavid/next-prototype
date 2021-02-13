@@ -2,7 +2,7 @@ import SearchRepositories from 'components/search_repositories'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Header, Segment } from 'semantic-ui-react'
 
 export const getServerSideProps: GetServerSideProps<{}, { id: string }> = async (context) => {
     const { params } = context
@@ -49,10 +49,20 @@ export default function UserPage(props: IProps) {
             <Grid stackable>
                 <Grid.Row>
                     <Grid.Column width={16} verticalAlign="middle">
-                        <SearchRepositories
-                            datasource={repositories}
-                            onSelect={onSelect}
-                        />
+                        <Segment.Group>
+                            <Segment>
+                                <Header
+                                    icon="list"
+                                    content={`${username} repositories`}
+                                />
+                            </Segment>
+                            <Segment>
+                                <SearchRepositories
+                                    datasource={repositories}
+                                    onSelect={onSelect}
+                                />
+                            </Segment>
+                        </Segment.Group>
 
                     </Grid.Column>
                 </Grid.Row>

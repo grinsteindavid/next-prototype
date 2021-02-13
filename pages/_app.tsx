@@ -15,8 +15,7 @@ function MyApp({ Component, pageProps }: any) {
 
       <Segment
         fluid
-        inverted
-        style={{ borderRadius: 0, margin: 0, height: '95vh', minHeight: '95vh', maxHeight: '95vh' }}
+        style={{ borderRadius: 0, margin: 0, height: '93vh', minHeight: '93vh', maxHeight: '93vh' }}
       >
         <Component {...pageProps} />
       </Segment>

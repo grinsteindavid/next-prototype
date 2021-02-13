@@ -1,7 +1,7 @@
 import SearchUsers from 'components/search_users'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { Grid, Segment } from 'semantic-ui-react'
+import { Grid, Header, Segment } from 'semantic-ui-react'
 
 export default function UsersPage(props: any) {
     const router = useRouter()
@@ -21,12 +21,19 @@ export default function UsersPage(props: any) {
             <Grid stackable>
                 <Grid.Row>
                     <Grid.Column width={16} verticalAlign="middle">
-                        <Segment>
-                            <SearchUsers
-                                onSelect={onSelect}
-                            />
-                        </Segment>
-
+                        <Segment.Group>
+                            <Segment>
+                                <Header
+                                    icon="list"
+                                    content="Github Users"
+                                />
+                            </Segment>
+                            <Segment>
+                                <SearchUsers
+                                    onSelect={onSelect}
+                                />
+                            </Segment>
+                        </Segment.Group>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

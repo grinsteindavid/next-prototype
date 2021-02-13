@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Dropdown, DropdownItemProps, DropdownProps } from "semantic-ui-react"
+import { Dropdown, DropdownItemProps, DropdownProps, Label } from "semantic-ui-react"
 
 function mapToDropdownItems(item: any): DropdownItemProps {
     return {
@@ -11,6 +11,12 @@ function mapToDropdownItems(item: any): DropdownItemProps {
             <a href={item.html_url} target="_blank">
                 <span>{item.name}</span>
                 <span style={{ color: 'grey', marginLeft: 10 }}>{item.created_at}</span>
+                <Label
+                    style={{ marginLeft: 10 }}
+                    color="blue"
+                    size="tiny"
+                    content={item.language}
+                />
             </a>
         )
     }
