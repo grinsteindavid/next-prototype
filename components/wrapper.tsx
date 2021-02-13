@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: red;
+  background-color: green;
 `
 
 export default Wrapper
